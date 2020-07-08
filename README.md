@@ -125,3 +125,30 @@ let mFunction: (
   param_two: typeof_param_two
 ) => typeof_result;
 ```
+
+## Configure Ts
+
+Run Ts in watch mode
+
+```bash
+tsc file.ts -w # Run ts in watch mode
+```
+
+To Configure Ts run : This will create a tsconfig.json file
+
+```bash
+tsc --init  # Create tsconfig.json
+```
+
+| Property           | Description                                                            |
+| ------------------ | ---------------------------------------------------------------------- |
+| `exclude`          | An array containig files and dir that should not be compiled           |
+| `include`          | An array containig the files that should be complied                   |
+| `files`            | An array containig the list of files that are to be compiled           |
+| `target`           | The target js version that Ts should be compiled to                    |
+| `outDir`           | Where the generated Js files are placed                                |
+| `rootDir`          | Where the Ts files are located - Maintains the file structure          |
+| `RemoveComments`   | Removes the comment from the Js files                                  |
+| `noImplicitAny`    | Raise error on expressions and declarations with an implied 'any' type |
+| `strictNullChecks` | Enable strict null checks                                              |
+
