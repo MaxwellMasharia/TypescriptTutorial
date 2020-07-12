@@ -152,3 +152,109 @@ tsc --init  # Create tsconfig.json
 | `noImplicitAny`    | Raise error on expressions and declarations with an implied 'any' type |
 | `strictNullChecks` | Enable strict null checks                                              |
 
+## Classes in Ts
+
+```ts
+/**
+ * Sample class in Ts
+ */
+
+class _Worker {
+  _name: string;
+  _salary: number;
+  _title: string;
+
+  // Constructor method
+  constructor(_name: string, _salary: number, _title: string) {
+    this._name = _name;
+    this._salary = _salary;
+    this._title = _title;
+  }
+
+  // Declare a function
+  identify() {
+    console.log(
+      `Hello my name is ${this._name}, my job title is ${this._title} and I earn ${this._salary} $`
+    );
+  }
+}
+```
+
+### Private,Public and ReadOnly Access modifiers
+
+| Access Modifier | Defination                                                            |
+| --------------- | --------------------------------------------------------------------- |
+| `public`        | instance variables can be accessed and changed                        |
+| `private`       | instance variables cannot be accessed                                 |
+| `readonly`      | instance variables can be accessed but their values cannot be changed |
+
+## Modules in Ts
+
+**If you are not using webpack or a bundler in the `tsconfig.josn` set the following so as to use import and export**
+
+```json
+{
+  "module": "es2015",
+  "target": "es6"
+}
+```
+
+```html
+<!-- In Links -->
+<script type="module" src="./dist/app.js"></script>
+```
+
+## Interfaces in Ts
+
+```ts
+/**
+ * You can use an interface to create a structure for a class or an object
+ */
+interface Student {
+  name: string;
+  gpa: number;
+  course: string;
+  classes: string[];
+  identify: () => void;
+}
+
+// Then implement the interface in a class
+class _HavardStudent implements Student {
+  private name: string;
+  private gpa: number;
+  private course: string;
+  private classes: string[];
+  identify: () => void;
+
+  constructor(name: string, gpa: number, course: string, classes: string[]) {
+    this.name = name;
+    this.gpa = gpa;
+    this.course = course;
+    this.classes = classes;
+    this.identify = function () {
+      console.log(this);
+    };
+  }
+}
+
+const mStudent = new _HavardStudent("Henry", 4.3, "Software Engeneering", [
+  "Mathematics",
+  "Computer Science",
+]);
+
+mStudnet.identify();
+
+/**
+ * Using an interface for objects
+ */
+
+const mStudent:Student = {
+  name: "Henry",
+  gpa: 4.3,
+  course: "Software Engeneering",
+  classes: ["Mathematics", "Computer Science"],
+  identify: function () {
+    console.log(this);
+  },
+};
+```
